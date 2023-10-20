@@ -9,7 +9,8 @@ function App() {
 
   return (
     <>
-    <div className='all-container'>
+    <main>
+
       <div className='left-container'>
         <Header/>
         <NavBar/>
@@ -19,7 +20,9 @@ function App() {
         <Card/>
         <List/>
       </div>
-    </div>
+
+    </main>
+
 
     </>
   )
