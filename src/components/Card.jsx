@@ -1,9 +1,10 @@
 import { useState } from 'react'
 
-const Card = () => {
+const Card = (props) => {
   return (
-    <div>
-      hello from card
+    <div className='jsx-card-container'>
+      <div className='jsx-card-text'>{props.attr}</div>
+      <div className='jsx-card-text'>{props.data}</div>
     </div>
   )
 }

@@ -13,10 +13,51 @@ main {
 
 .right-container {
   background-color: lightblack;
-  padding: 5rem 5rem;
+  padding: 8rem 8rem;
 }
 
 .navbar-text {
   font-size: 1.5rem;
   color: black;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+.jsx-card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: grey;
+  border-radius: 1rem;
+  padding: 3rem 3rem;
+  box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.jsx-card-text {
+  font-size: 2vw;
+}
+
+.list-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  grid-gap: 10px;
+}
+
+.input-box {
+  width: 20vw;
+  height: 5vh;
+  margin-right: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.search-button {
+  width: 5vw;
+  height: 5vh;
 }

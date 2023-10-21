@@ -1,9 +1,7 @@
-import { useState } from 'react'
-
 const Header = () => {
   return (
     <p>
-      HEADER LOGO HERE
+      Irvine Weather
     </p>
   )
 }
