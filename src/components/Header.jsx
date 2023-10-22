@@ -1,8 +1,15 @@
+import { Link, Route, Routes } from 'react-router-dom'
+
 const Header = () => {
   return (
-    <p>
-      Irvine Weather
-    </p>
+    <>
+      <Link className='link-title'to={"/"}>
+        <p className='link-title-text'>
+          Irvine Weather
+        </p>
+      </Link>
+
+    </>
   )
 }
 

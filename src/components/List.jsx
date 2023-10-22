@@ -1,5 +1,4 @@
-import { useState } from 'react'
-
+import { Link, Route, Routes } from 'react-router-dom'
 
 const convertCtoF = (c) => {
   return ((c * 9/5) + 32).toFixed(1);
@@ -33,12 +32,14 @@ const List = (props) => {
         <p>Clouds</p>
         <p>Temperature</p>
         <p>Wind Speed</p>
+        <p>Details</p>
         {props.data.map((data, index) => (
           <>
             <p>{data['datetime']}</p>
             <p>{data['clouds']}</p>
             <p>{convertCtoF(data['temp'])}</p>
             <p>{data['wind_spd']}</p>
+            <Link className='link-container' to={`/${data.datetime}`}><div className='link-img'>🔗</div></Link>
           </>
         ))}
       </div>

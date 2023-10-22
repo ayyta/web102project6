@@ -1,9 +1,11 @@
 import { useState, useEffect} from 'react'
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import Header from './components/Header'
 import Card from './components/Card'
 import List from './components/List'
 import NavBar from './components/NavBar'
+import DateInDetail from './routes/DateInDetail'
 
 
 const convertCtoF = (c) => {
@@ -18,6 +20,7 @@ const API_KEY = '2da3fac7519249c5b6d57a824f6d8022'
 function App() {
   const listURL = `https://api.weatherbit.io/v2.0/history/daily?postal_code=92697&country=US&start_date=2023-10-12&end_date=2023-10-20&key=${API_KEY}`;
   const [listData, setListData] = useState(null);
+  const [detailData, setDetailData] = useState(null);
   const [filteredData, setFilteredData] = useState(null);
 
   const [filterApplied, setFilterApplied] = useState(false);
@@ -33,6 +36,14 @@ function App() {
       const data = await response.json();
       setListData(data);
       setFilteredData(data['data']);
+      setDetailData(data['data'].map(item => ({
+        datetime: item.datetime,
+        clouds: item.clouds,
+        temp: item.temp,
+        max_temp: convertCtoF(item.max_temp),
+        min_temp: convertCtoF(item.min_temp),
+        wind_spd: convertCtoF(item.wind_spd)
+      })))
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -95,6 +106,10 @@ function App() {
       setMedianClouds(cloudList[Math.floor(cloudList.length / 2)])
     }
   }, [filteredData])
+
+
+
+  // datetime, clouds, max-temp, min-temp, wind-spd
   return (
     <>
     <main>
@@ -104,13 +119,34 @@ function App() {
         <NavBar/>
       </div>
       <div className='right-container'>
-        <div className='card-container'>
-          <Card attr='Total Items' data={totalItems}/>
-          <Card attr='Mean Temperature' data={meanTemp}/>
-          <Card attr='Median Clouds' data={medianClouds}/>
-        </div>
-        {listData !== null && <List data={filteredData} filter={setFilterApplied} search={setSearchDate} clouds={setSearchClouds}/>}
+        <Routes>
+          <Route path="/" element={
+            <>
+            <div className='card-container'>
+              <Card attr='Total Items' data={totalItems}/>
+              <Card attr='Mean Temperature' data={meanTemp}/>
+              <Card attr='Median Clouds' data={medianClouds}/>
+            </div>
+            <div className='data-container'>
+              <div className='list-data-container'>
+                {listData !== null && <List data={filteredData} filter={setFilterApplied} search={setSearchDate} clouds={setSearchClouds}/>}
+              </div>
+              <div className='visual-data-container'>
+                Graph
+              </div>
+            </div>
+            
+
+          
+          </>}>
+          </Route>
+
+          {detailData != null && detailData.map(item => (
+            <Route path={`/${item.datetime}`} element={<DateInDetail data={item}/>}></Route>
+          ))}
+        </Routes>
       </div>
+      
 
 
     </main>

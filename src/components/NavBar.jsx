@@ -1,21 +1,30 @@
-import { useState } from 'react'
+import { Link, Route, Routes } from 'react-router-dom'
 
 const NavBar = () => {
   return (
     <div class='navbar-container'>
       <div className='navbar-text-container'>
-        <img></img>
-        <p className='navbar-text'>DashBoard</p>
+        <Link className='link-title'to={"/"}>
+          <p className='navbar-text'>
+            DashBoard
+          </p>
+        </Link>
       </div>
 
       <div className='navbar-text-container'>
-        <img></img>
-        <p className='navbar-text'>Search</p>
+        <Link className='link-title'to={"/"}>
+          <p className='navbar-text'>
+            Search
+          </p>
+        </Link>
       </div>
       
       <div className='navbar-text-container'>
-        <img></img>
-        <p className='navbar-text'>About</p>
+        <Link className='link-title'to={"/"}>
+          <p className='navbar-text'>
+            About
+          </p>
+        </Link>
       </div>
     </div>
   )

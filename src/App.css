@@ -5,6 +5,22 @@ main {
   grid-template-columns: 1fr 4fr;
 }
 
+.link-title {
+  text-decoration: none;
+  color: inherit;
+  background-color: transparent;
+  border: none;
+  font-size: 2.5vw;
+}
+
+.link-title:visited {
+  color: white;
+}
+
+.link-title-text {
+  color: black;
+}
+
 .left-container {
   background-color: lightgray;
   text-align: center;
@@ -44,7 +60,7 @@ main {
 
 .list-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(8, 1fr);
   grid-gap: 10px;
 }
@@ -60,4 +76,25 @@ main {
 .search-button {
   width: 5vw;
   height: 5vh;
+}
+
+.data-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.list-data-container {
+  flex: 5;
+}
+
+.visual-data-container {
+  flex: 1;
+}
+
+.link-container {
+  display: flex;
+  align-items: center;
+}
+.link-img {
+  padding-left: 1vw;
 }
