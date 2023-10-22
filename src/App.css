@@ -84,11 +84,14 @@ main {
 }
 
 .list-data-container {
-  flex: 5;
+  flex: 4;
 }
 
 .visual-data-container {
   flex: 1;
+}
+.visual-data-container h2 {
+  text-align: center;
 }
 
 .link-container {

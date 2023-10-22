@@ -1,5 +1,6 @@
 import { useState, useEffect} from 'react'
 import { Route, Routes } from 'react-router-dom'
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Label } from 'recharts';
 import './App.css'
 import Header from './components/Header'
 import Card from './components/Card'
@@ -21,6 +22,7 @@ function App() {
   const listURL = `https://api.weatherbit.io/v2.0/history/daily?postal_code=92697&country=US&start_date=2023-10-12&end_date=2023-10-20&key=${API_KEY}`;
   const [listData, setListData] = useState(null);
   const [detailData, setDetailData] = useState(null);
+  const [chartData, setChartData] = useState(null);
   const [filteredData, setFilteredData] = useState(null);
 
   const [filterApplied, setFilterApplied] = useState(false);
@@ -43,6 +45,10 @@ function App() {
         max_temp: convertCtoF(item.max_temp),
         min_temp: convertCtoF(item.min_temp),
         wind_spd: convertCtoF(item.wind_spd)
+      })))
+      setChartData(data.data.map(item => ({
+        datetime: item.datetime,
+        temp: convertCtoF(item.temp)
       })))
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -132,7 +138,39 @@ function App() {
                 {listData !== null && <List data={filteredData} filter={setFilterApplied} search={setSearchDate} clouds={setSearchClouds}/>}
               </div>
               <div className='visual-data-container'>
-                Graph
+                <h2>8-Day Weather Data for Irvine</h2>
+
+                <LineChart
+                  width={500}
+                  height={500}
+                  data={chartData}
+                  margin={{
+                    top: 10,
+                    right: 30,
+                    left: 20,
+                    bottom: 30,
+                  }}>
+                  <Line
+                    type="monotone"
+                    dataKey="temp"
+                    stroke="#8884d8"
+                  />
+                  <CartesianGrid strokeDasharray="5 5" />
+                  <XAxis dataKey="datetime" angle={0} dx={0}>
+                    <Label value="Date" offset={-30} position="insideBottom" />
+                  </XAxis>
+
+                  <YAxis
+                    label={{
+                      value: "Avg Temp",
+                      angle: -90,
+                      position: "insideLeft",
+                      textAnchor: "middle",
+                    }}
+                    domain={[60, 75]}
+                  />
+                  <Tooltip />
+                </LineChart>
               </div>
             </div>
             

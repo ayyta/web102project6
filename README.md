@@ -1,26 +1,24 @@
-# Web Development Project 5 - Irvine Weather
+# Web Development Project 6 - Irvine Weather and More
+
 Submitted by: Alvis Yong
 
-This web app: Displays weather in Irvine California from 10/12 - 10/19
+This web app: This weather app allows users to view details about the weather in Irvine over October 12 - 19. They can view details about each day and a graph that displays the trend of temperature over those 8 days.
 
-Time spent: 7 hours spent in total
+Time spent: 4 hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [X] **The list displays a list of data fetched using an API call**
-- [X] **Data uses the useEffect React hook and async/await syntax**
-- [X] **The app dashboard includes at least three summary statistics about the data such as**
-  - [ ] *insert details*
-- [X] **A search bar allows the user to search for an item in the fetched data**
-- [X] **Multiple different filters (2+) allow the user to filter items in the database by specified categories**
+- [X] **The app includes at least one unique chart developed using the fetched data that tell an interesting story**
+- [X] **Clicking on an item in the list view displays more details about it**
+- [X] **Clicking on an item has a direct, unique link to that item's detail view page**
+
 
 The following **optional** features are implemented:
 
-- [X] Multiple filters can be applied simultaneously
-- [ ] Filters use different input types such as a text input, a selection, or a slider
-- [X] The user can enter specific bounds for filter values
+- [ ] The site's customized dashboard contains more content that explains what is interesting about the data
+- [ ] The site allows users to toggle between different data visualizations
 
 The following **additional** features are implemented:
 
@@ -30,10 +28,10 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHRxcnplNTByeThwZDRkdzIyMmg1cmNhdGlxNG55OWQwOXJmZ2tjNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/pwk3gLWxgBYZdl6lHN/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmU4aDk0cmM3MDBweXNqdDcyazJyY2ZybHplZmNwcjlteXdoNzBsciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Qfsx2aDVeqgTJJrv0k/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with LiceCAP  
+GIF created with LiceCap  
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows
@@ -41,7 +39,7 @@ GIF created with LiceCAP
 
 ## Notes
 
-Working with the API was really buggy for me and useEffect was difficult to understand but it was a really good challenge.
+Overall this project was pretty straightfoward and its nice to learn about because its very useful for future projects.
 
 ## License
 
@@ -57,5 +55,4 @@ Working with the API was really buggy for me and useEffect was difficult to unde
     distributed under the License is distributed on an "AS IS" BASIS,
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
-    limitations under the License.# web102project6
-# web102project6
+    limitations under the License.
